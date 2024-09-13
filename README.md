@@ -5,15 +5,15 @@ In this project, I fine-tuned the YOLOv8 model to specialize in detecting licens
 
 ## Training Details:
 
-Epochs: 100
-Image Size: 640x640 pixels
-Batch Size: 16
-Learning Rate: Initial learning rate of 0.01 with gradual decay
-Momentum: 0.937
-Weight Decay: 0.0005
-Warmup Epochs: 3
-Data Augmentation: Enabled
-Rectangular Training: Used to maintain aspect ratio
+Epochs: 100<br>
+Image Size: 640x640 pixels<br>
+Batch Size: 16<br>
+Learning Rate: Initial learning rate of 0.01 with gradual decay<br>
+Momentum: 0.937<br>
+Weight Decay: 0.0005<br>
+Warmup Epochs: 3<br>
+Data Augmentation: Enabled<br>
+Rectangular Training: Used to maintain aspect ratio<br>
 ![image](https://github.com/user-attachments/assets/2e1d7260-28b6-4150-8fba-f264945d5d06)
 
 ## Evaluation Metrics:
