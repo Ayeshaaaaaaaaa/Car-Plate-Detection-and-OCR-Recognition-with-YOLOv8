@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['num_plate', 'number_plate']
+
+roboflow:
+  workspace: objectdetection-iqkqk
+  project: dataset-lpqg4
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/objectdetection-iqkqk/dataset-lpqg4/dataset/1
