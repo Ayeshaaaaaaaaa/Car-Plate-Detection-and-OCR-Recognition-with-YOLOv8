@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv8 Number Plate Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 20px auto;
+        }
+        video {
+            max-width: 100%;
+            margin-top: 20px;
+            border: 2px solid #ddd;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload a Video for Number Plate Detection</h1>
+
+        <form id="upload-form">
+            <input type="file" id="video-input" accept="video/*" required>
+            <button type="submit">Upload and Detect</button>
+        </form>
+
+        <h2>Processed Video:</h2>
+        <video id="output-video" controls style="display: none;"></video>
+
+        <p id="status" style="color: green;"></p>
+    </div>
+
+    <script>
+        const form = document.getElementById('upload-form');
+        const videoInput = document.getElementById('video-input');
+        const outputVideo = document.getElementById('output-video');
+        const statusText = document.getElementById('status');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const file = videoInput.files[0];
+            if (!file) {
+                alert("Please upload a video.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            statusText.textContent = "Processing...";
+
+            try {
+                // Send the video to the FastAPI backend
+                const response = await fetch('http://127.0.0.1:8000/upload_video/', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (!response.ok) {
+                    throw new Error("Error uploading the video.");
+                }
+
+                // Get the processed video from the server
+                const blob = await response.blob();
+                const videoUrl = URL.createObjectURL(blob);
+
+                // Display the processed video with number plate detection
+                outputVideo.src = videoUrl;
+                outputVideo.style.display = 'block';
+                statusText.textContent = "Number plate detection completed!";
+            } catch (error) {
+                console.error(error);
+                statusText.textContent = "Error during detection!";
+            }
+        });
+    </script>
+</body>
+</html>

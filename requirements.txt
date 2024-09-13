@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+torch
+pillow
+numpy
+opencv-python-headless
+
+matplotlib
+ultralytics==8.2.82  # Or the version you are using
+easyocr
