@@ -49,3 +49,10 @@ Bounding boxes and detected plate numbers are drawn on the original image for vi
 The extracted plate numbers and paths to saved images (with bounding boxes and processed plates) are returned as a JSON response.<br>
 
 ![image](https://github.com/user-attachments/assets/b3d5c21d-d9e3-436b-895f-843bec6c8a84)
+## Contribution and Collaboration
+I warmly welcome contributions and collaboration on this project! Whether you have suggestions for improvements, new features, or bug fixes, your input is highly valued. To contribute, please follow these steps:<br>
+
+Fork the Repository: Create a personal copy of the repository to work on.<br>
+Create a Branch: Develop your changes on a separate branch to keep the main branch stable.<br>
+Make Changes: Implement your enhancements or fixes and test them thoroughly.<br>
+Submit a Pull Request: Once you’re satisfied with your changes, submit a pull request for review.<br>
